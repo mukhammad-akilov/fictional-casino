@@ -38,9 +38,14 @@ const GamesList = ({title = "Games order", ...restProps}: GamesOrderProps) => {
     const localGamesListIdsMemo = useMemo(() => gamesListIds.map((id) => id), [gamesListIds]);
 
     const sensors = useSensors(
-        useSensor(TouchSensor),
         useSensor(MouseSensor),
-        useSensor(PointerSensor),
+        useSensor(TouchSensor, {
+            // Press delay of 250ms, with tolerance of 5px of movement
+            activationConstraint: {
+              delay: 250,
+              tolerance: 5,
+            },
+          }),
         useSensor(KeyboardSensor, {
           coordinateGetter: sortableKeyboardCoordinates,
         })
