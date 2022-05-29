@@ -41,12 +41,9 @@ import projectLogo from '../../assets/images/casino.svg';
 import SettingsModal from "./modals/SettingsModal";
 
 const Navbar = () => {
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
     const location = useLocation();
     const [openDrawer, setOpenDrawer] = useState<boolean>(false);
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-    const appBarMenuOpen = Boolean(anchorEl);
     // Modals
     const [openSettingsModal, setOpenSettingsModal] = useState<boolean>(false);
 
@@ -80,16 +77,8 @@ const Navbar = () => {
                             switch(navbarItem.type) {
                                 case NavbarItemType.Link:
                                     return (
-                                        <div
+                                        <Fragment
                                             key={index}
-                                            // animate={{
-                                            //     x: 0,
-                                            //     scale: 1
-                                            // }}
-                                            // initial={{
-                                            //     x: "-100%",
-                                            //     scale: 0.8
-                                            // }}
                                         >
                                             <ListItemButton
                                                 component={RouterLink}
@@ -101,7 +90,7 @@ const Navbar = () => {
                                                 <ListItemIcon>{navbarItem.icon}</ListItemIcon>
                                                     <ListItemText primary={navbarItem.title} />
                                                 </ListItemButton>
-                                        </div>
+                                        </Fragment>
                                     )
                                 case NavbarItemType.Dropdown:
                                     return (
@@ -161,7 +150,7 @@ const Navbar = () => {
                         <Box
                             component="img"
                             src={projectLogo}
-                            alt="Fictional Casino"
+                            alt={ProjectTitle}
                             sx={{  width: "40px", marginRight: "10px"}}
                         />
                         <Typography variant="h6" sx={{flexGrow: 1, textOverflow: "ellipsis", overflow: "hidden", whiteSpace: "nowrap",}}>

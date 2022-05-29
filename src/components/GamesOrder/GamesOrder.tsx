@@ -1,5 +1,6 @@
 // React
 import { useState, useMemo, useEffect} from "react";
+import { Link as RouterLink } from 'react-router-dom';
 import { ProjectTitle } from "../../config";
 // DND
 import {
@@ -7,6 +8,7 @@ import {
     closestCenter,
     KeyboardSensor,
     PointerSensor,
+    MouseSensor, TouchSensor,
     useSensor,
     useSensors, DragEndEvent
   } from '@dnd-kit/core';
@@ -24,7 +26,7 @@ import { handleSnackbar } from "../../store/slices/snackbarSlice";
 // Props
 import { GamesOrderProps } from "./GamesOrder.props";
 import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
-import {TableContainer, Alert, Paper, Button, Typography, Box, Table, TableBody, TableCell, TableRow, TableHead, IconButton} from "@mui/material";
+import {TableContainer,Link, Alert, Paper, Button, Typography, Box, Table, TableBody, TableCell, TableRow, TableHead, IconButton} from "@mui/material";
 import SortableGame from "./SortableGame";
 
 const tableColumns = ["Title", "Thumbnail", "Description"];
@@ -36,6 +38,8 @@ const GamesList = ({title = "Games order", ...restProps}: GamesOrderProps) => {
     const localGamesListIdsMemo = useMemo(() => gamesListIds.map((id) => id), [gamesListIds]);
 
     const sensors = useSensors(
+        useSensor(TouchSensor),
+        useSensor(MouseSensor),
         useSensor(PointerSensor),
         useSensor(KeyboardSensor, {
           coordinateGetter: sortableKeyboardCoordinates,
@@ -137,7 +141,19 @@ const GamesList = ({title = "Games order", ...restProps}: GamesOrderProps) => {
                 </>
             )
             :
-            <Alert severity="warning">No games added. Go to this link to add a new game</Alert>
+            <Alert severity="warning">
+            {`
+                No games added. Go to 
+            `}
+            <Link
+                color="inherit"
+                to="/manage-games"
+                component={RouterLink}
+            >
+                Manage games
+            </Link> 
+            {` link to add a new game`}
+        </Alert>
         }
     </>
     )

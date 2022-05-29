@@ -1,8 +1,7 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {PaletteMode} from "@mui/material";
-import { type } from "os";
 
-let dashboardThemeMode = localStorage.getItem("fictional-casino-theme-mode");
+const dashboardThemeMode = localStorage.getItem("fictional-casino-theme-mode");
 
 export enum MenuType {
     Fixed,
@@ -19,6 +18,7 @@ const initialState: ThemeState = {
     menuType: MenuType.Overlay,
 };
 
+// Slice
 export const themeSlice = createSlice({
     name: "theme",
     initialState: initialState,
@@ -26,12 +26,17 @@ export const themeSlice = createSlice({
         changeTheme: (state, action: PayloadAction<PaletteMode>) => {
             state.theme = action.payload;
         },
-        changeMenuType: (state, action: PayloadAction<MenuType>) => {
-            state.menuType = action.payload;
-        },
+        // changeMenuType: (state, action: PayloadAction<MenuType>) => {
+        //     state.menuType = action.payload;
+        // },
     }
 });
 
-export const {changeMenuType, changeTheme} = themeSlice.actions;
+// Actions
+export const themeActions = {
+    changeTheme: themeSlice.actions.changeTheme,
+}
+
+export const {changeTheme} = themeSlice.actions;
 
 export default themeSlice.reducer;

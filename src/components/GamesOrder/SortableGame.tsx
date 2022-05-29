@@ -1,7 +1,6 @@
 import {useSortable} from '@dnd-kit/sortable';
 import {CSS} from '@dnd-kit/utilities';
 import {TableRow, TableCell, Box} from "@mui/material";
-import { Game } from '../../interfaces/game.interface';
  // Images
 import gameImage from '../../assets/images/game-thumbnail.jpg';
 import useAppSelector from "../../customHooks/useAppSelector";
