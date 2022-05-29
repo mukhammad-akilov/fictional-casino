@@ -1,6 +1,6 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {Game} from "../../interfaces/game.interface";
-
+import { findGameById } from "../../utils/utils";
 const gamesList = localStorage.getItem("dashboard-games-list");
 
 interface GamesState {
@@ -32,9 +32,17 @@ export const gamesSlice = createSlice({
             const changedGamesList = state.gamesList.filter(game => game.id !== deletedGameId);
             state.gamesList = changedGamesList;
         },
+        editGamesSort: (state, action: PayloadAction<string[]>) => {
+            const sortedGames: Game[] = [];
+            for(let gameId of action.payload) {
+                const game = findGameById(gameId, state.gamesList);
+                sortedGames.push(game);
+            }
+            state.gamesList = sortedGames;
+        }
     }
 });
 
-export const {addGame, editGame, deleteGame} = gamesSlice.actions;
+export const {addGame, editGame, deleteGame, editGamesSort} = gamesSlice.actions;
 
 export default gamesSlice.reducer;

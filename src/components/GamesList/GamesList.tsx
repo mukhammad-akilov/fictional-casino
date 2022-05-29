@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import {useDispatch} from "react-redux";
 import useAppSelector from "../../customHooks/useAppSelector";
 import { GamesListProps } from "./GamesList.props";
@@ -6,6 +6,7 @@ import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
 import Tooltip from "../Tooltip/Tooltip";
 import { Game } from "../../interfaces/game.interface";
 import {deleteGame} from "../../store/slices/gamesSlice";
+import { ProjectTitle } from "../../config";
 import {TableContainer, Alert, Paper, Typography, Box, Table, TableBody, TableCell, TableRow, TableHead, IconButton} from "@mui/material";
 // Icons
 import {Edit, Delete} from "@mui/icons-material"
@@ -22,6 +23,10 @@ const GamesList = ({title = "Fictional Casino", ...restProps}: GamesListProps) =
     const gamesList = useAppSelector((state) => state.games.gamesList);
     const [selectedGame, setSelectedGame] = useState<Partial<Game>>({});
     const [openGameEditModal, setOpenGameEditModal] = useState<boolean>(false);
+    
+    useEffect(() => {
+        document.title = `${title} | ${ProjectTitle}`;
+    }, [])
 
     return (
         <>

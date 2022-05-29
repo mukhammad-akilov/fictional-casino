@@ -28,13 +28,13 @@ const navbarRoutes: NavbarRoute[] = [
       type: NavbarItemType.Link,
     },
     {
-      title: "Games List",
-      link: "/games-list",
+      title: "Manage games",
+      link: "/manage-games",
       icon: <Payment color="primary" />,
       type: NavbarItemType.Link,
     },
     {
-      title: "Games order",
+      title: "Change games order",
       link: "/games-order",
       icon: <Payment color="primary" />,
       type: NavbarItemType.Link,

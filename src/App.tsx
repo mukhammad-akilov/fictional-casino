@@ -58,8 +58,8 @@ const App = (): JSX.Element => {
           <Layout>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/games-list" element={<GamesList title='List of games' />} />
-              <Route path="/games-order" element={<GamesOrder title="Games order" />} />
+              <Route path="/manage-games" element={<GamesList title="Manage games" />} />
+              <Route path="/games-order" element={<GamesOrder title="Change games order" />} />
               <Route path="/404" element={<div>Not found</div>} />
               <Route path="*" element={<Navigate to="/404" />}  />
             </Routes>
