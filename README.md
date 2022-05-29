@@ -1,6 +1,70 @@
-# Getting Started with Create React App
+# Getting Started with Fictional Casino
+
+![Fictional Casino](./.github/screenshots/desktop1.png?raw=true "Fictional Casino")
+
+SPA for Fictional Casino using following technologies:
+
+⭐HTML, CSS, SCSS
+
+⭐JavaScript, React, TypeScript
+
+⭐Material UI 5
+
+⭐Redux Toolkit, Redux Saga
+
+⭐Light, Dark and System Mode theme colors
+
+⭐Respoinse layout
+
+
+
+## ! Important Note
+The project was developed for two days, since on weekdays I was loaded with the main work. So there are some bugs and improvments that should be apply
+
+-Redux Saga bug with infinite lopp in generator fucntion when calling yield
+
+-React Suspense issue with React 18
+
+-Redux extra renders (should use reselect with Redux Toolkit)
+
+-Configure EsLint and Prettier
+
+-Add test (unit and integration tests) using Jest with React Testing Library
+
+### Project Structure
+
+```shell
+./src
+├── App.tsx # Application entrypoint
+├── assets # assets folder contains all the static files (images, fonts, etc).
+├── components # shared components
+├── customHooks # shared hooks
+├── interfaces  # contains TS interfaces
+├──  store # root store and store settings
+├──  utils # contanins utils functions
+```
+
+## Screenshots
+
+![Fictional Casino](./.github/screenshots/desktop1.png?raw=true "Fictional Casino")
+
+![Fictional Casino](./.github/screenshots/desktop2.png?raw=true "Fictional Casino")
+
+![Fictional Casino](./.github/screenshots/desktop3.png?raw=true "Fictional Casino")
+
+![Fictional Casino](./.github/screenshots/desktop4.png?raw=true "Fictional Casino")
+
+![Fictional Casino](./.github/screenshots/desktop5.png?raw=true "Fictional Casino")
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+![Fictional Casino](./.github/screenshots/mobile1.jpg?raw=true "Fictional Casino")
+
+![Fictional Casino](./.github/screenshots/mobile2.jpg?raw=true "Fictional Casino")
+
+![Fictional Casino](./.github/screenshots/mobile4.jpg?raw=true "Fictional Casino")
+
+![Fictional Casino](./.github/screenshots/mobile6.jpg?raw=true "Fictional Casino")
 
 ## Available Scripts
 
