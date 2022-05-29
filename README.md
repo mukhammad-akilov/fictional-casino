@@ -2,7 +2,7 @@
 
 ![Fictional Casino](./.github/screenshots/desktop1.png?raw=true "Fictional Casino")
 
-SPA for Fictional Casino using following technologies:
+SPA for Fictional Casino using following technologies and tools:
 
 ⭐HTML, CSS, SCSS
 
@@ -15,6 +15,10 @@ SPA for Fictional Casino using following technologies:
 ⭐Light, Dark and System Mode theme colors
 
 ⭐Respoinse layout
+
+⭐Saving data in your localstorage
+
+⭐Drag and drop for sortings games
 
 
 
