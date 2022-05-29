@@ -126,4 +126,4 @@ const EditGameModal = ({open, game, onClose, ...restProps}: EditGameModalProps):
     )
 }
 
-export default EditGameModal;
+export default React.memo(EditGameModal);

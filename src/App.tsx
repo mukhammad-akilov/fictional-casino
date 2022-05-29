@@ -6,11 +6,15 @@ import useAppSelector from './customHooks/useAppSelector';
 import { handleSystemTheme } from './utils/utils';
 import { projectTheme } from './config';
 import Layout from './components/Laoyout/Layout';
-import Home from './components/Home/Home';
 import SuspenseFallback from './components/SuspenseFallback/SuspenseFallback';
 import './App.scss';
-import GamesList from './components/GamesList/GamesList';
-import GamesOrder from './components/GamesOrder/GamesOrder';
+// Lazy load components
+// import { Home, GamesList, GamesOrder, NotFound } from './components/Lazy/Lazy';
+import Home from "./components/Home/Home";
+import GamesList from "./components/GamesList/GamesList";
+import GamesOrder from "./components/GamesOrder/GamesOrder";
+import NotFound from "./components/NotFound/NotFound";
+
 
 const App = (): JSX.Element => {
   const themeState = useAppSelector((state) => state.theme);
@@ -60,7 +64,7 @@ const App = (): JSX.Element => {
               <Route path="/" element={<Home />} />
               <Route path="/manage-games" element={<GamesList title="Manage games" />} />
               <Route path="/games-order" element={<GamesOrder title="Change games order" />} />
-              <Route path="/404" element={<div>Not found</div>} />
+              <Route path="/404" element={<NotFound />} />
               <Route path="*" element={<Navigate to="/404" />}  />
             </Routes>
           </Layout>

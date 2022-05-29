@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import useAppSelector from "../../customHooks/useAppSelector";
 import { ProjectTitle } from "../../config";
-import {Box, Typography, Grid, Alert, Container, Paper} from "@mui/material";
+import { Link as RouterLink } from 'react-router-dom';
+import {Box, Typography, Grid, Alert, Link, Paper} from "@mui/material";
 // Images
 import gameImage from '../../assets/images/game-thumbnail.jpg';
 
@@ -59,7 +60,19 @@ const Home = () => {
                         ))}
                     </Grid>
                 :
-                <Alert severity="warning">No games added</Alert>
+                <Alert severity="warning">
+                    {`
+                        No games added. Go to 
+                    `}
+                    <Link
+                        color="inherit"
+                        to="/manage-games"
+                        component={RouterLink}
+                    >
+                        Manage games
+                    </Link> 
+                    {` link to add a new game`}
+                </Alert>
             }
             
         </>

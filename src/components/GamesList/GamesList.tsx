@@ -18,7 +18,7 @@ import gameImage from '../../assets/images/game-thumbnail.jpg';
 
 const tableColumns = ["Title", "Thumbnail", "Description", "Actions"];
 
-const GamesList = ({title = "Fictional Casino", ...restProps}: GamesListProps) => {
+const GamesList = ({title = ProjectTitle, ...restProps}: GamesListProps) => {
     const dispatch = useDispatch();
     const gamesList = useAppSelector((state) => state.games.gamesList);
     const [selectedGame, setSelectedGame] = useState<Partial<Game>>({});

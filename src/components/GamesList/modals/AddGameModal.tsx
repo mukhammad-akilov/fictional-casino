@@ -136,4 +136,4 @@ const AddGameModal = (): JSX.Element => {
     )
 }
 
-export default AddGameModal;
+export default React.memo(AddGameModal);

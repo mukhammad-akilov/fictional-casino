@@ -1,14 +1,15 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {Game} from "../../interfaces/game.interface";
 import { findGameById } from "../../utils/utils";
-const gamesList = localStorage.getItem("dashboard-games-list");
+
+const gamesList = localStorage.getItem("fictional-casino-games-list");
 
 interface GamesState {
     gamesList: Game[],
 }
 
 const initialState: GamesState = {
-    gamesList: [],
+    gamesList: gamesList ? JSON.parse(gamesList).value : [],
 };
 
 export const gamesSlice = createSlice({
